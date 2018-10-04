@@ -1,20 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+const list = [
+  {
+    name: 'John Lennon'
+  },
+  {
+    name: 'Paul McCartney'
+  },
+  {
+    name: 'George Harrison'
+  },
+  {
+    name: 'Ringo Starr'
+  }
+];
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      list.map(member => 
+        <Beatle 
+          name={member.name}
+        />
+      )
     );
+  }
+}
+
+class Beatle extends Component {
+  render() {
+    return <div className="App">{this.props.name}</div>;
   }
 }
 
